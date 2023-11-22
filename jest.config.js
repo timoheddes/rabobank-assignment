@@ -5,7 +5,6 @@ module.exports = {
   transform: {
     '^.+\\.ts?$': 'ts-jest',
   },
-  // setupFilesAfterEnv: ['<rootDir>/jest/config.js'],
   testPathIgnorePatterns: ['/node_modules/', '/test/e2e/'],
   testRegex: '(/test/.*|\\.(test|spec))\\.(ts|tsx|js)$',
   moduleFileExtensions: ['ts', 'tsx', 'js'],

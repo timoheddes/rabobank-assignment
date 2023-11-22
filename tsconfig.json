@@ -7,8 +7,7 @@
     "outDir": "dist/esm",
     "allowJs": true,
     "moduleResolution": "node",
-    "removeComments": true,
-    "paths": {}
+    "removeComments": true
   },
   "include": ["./src", "./__tests__"],
   "exclude": ["node_modules"]

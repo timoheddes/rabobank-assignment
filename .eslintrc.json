@@ -1,0 +1,15 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 2019,
+    "sourceType": "module"
+  },
+  "extends": ["eslint:recommended"],
+  "plugins": ["import"],
+  "rules": {
+    "quotes": ["error", "single", { "avoidEscape": true }],
+    "semi": ["error", "always", { "omitLastInOneLineBlock": true }],
+    "no-trailing-spaces": ["error"],
+    "indent": ["error", 2],
+    "import/consistent-type-specifier-style": ["error", "prefer-top-level"]
+  }
+}
