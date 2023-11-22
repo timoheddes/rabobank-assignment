@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "types": ["node", "jest"],
+    "skipLibCheck": true,
+    "module": "commonjs",
+    "outDir": "dist/esm",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "removeComments": true,
+    "paths": {}
+  },
+  "include": ["./src", "./__tests__"],
+  "exclude": ["node_modules"]
+}
