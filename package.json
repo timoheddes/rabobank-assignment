@@ -1,0 +1,19 @@
+{
+  "name": "rabobank-assignment",
+  "version": "0.0.0",
+  "description": "Rabobank Customer Statement Processor",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/timoheddes/rabobank-assignment.git"
+  },
+  "author": "timoheddes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/timoheddes/rabobank-assignment/issues"
+  },
+  "homepage": "https://github.com/timoheddes/rabobank-assignment#readme"
+}
