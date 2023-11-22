@@ -1,6 +1,6 @@
 {
   "name": "rabobank-assignment",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Rabobank Customer Statement Processor",
   "main": "index.js",
   "scripts": {
@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/timoheddes/rabobank-assignment/issues"
   },
-  "homepage": "https://github.com/timoheddes/rabobank-assignment#readme"
+  "homepage": "https://github.com/timoheddes/rabobank-assignment#readme",
+  "devDependencies": {
+    "@types/jest": "^29.5.10",
+    "@types/node": "^20.9.4",
+    "eslint": "^8.54.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.1.0",
+    "typescript": "^5.3.2"
+  }
 }
