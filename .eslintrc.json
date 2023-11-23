@@ -3,13 +3,13 @@
     "ecmaVersion": 2021,
     "sourceType": "module"
   },
-  "extends": ["eslint:recommended", "@typescript-eslint/recommended"],
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  "parser": "@typescript-eslint/parser",
   "plugins": ["import", "@typescript-eslint"],
   "rules": {
     "quotes": ["error", "single", { "avoidEscape": true }],
     "semi": ["error", "always", { "omitLastInOneLineBlock": true }],
     "no-trailing-spaces": ["error"],
-    "indent": ["error", 2],
     "@typescript-eslint/consistent-type-imports": [
       "error",
       { "prefer": "type-imports" }

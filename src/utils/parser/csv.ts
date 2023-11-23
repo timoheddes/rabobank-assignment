@@ -22,7 +22,7 @@ export const parseCSV = async (
   data: string[],
   validOnly: boolean,
 ): Promise<RecordStructure[]> => {
-  const records: any[] = [];
+  const records: Array<Record<string, string>> = [];
 
   return new Promise((resolve, reject) =>
     Readable.from(data)
