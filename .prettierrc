@@ -8,6 +8,5 @@
   "arrowParens": "always",
   "proseWrap": "always",
   "plugins": ["prettier-plugin-organize-imports"],
-  "organizeImportsSkipDestructiveCodeActions": true,
-  "consistent-type-imports": "true"
+  "organizeImportsSkipDestructiveCodeActions": true
 }

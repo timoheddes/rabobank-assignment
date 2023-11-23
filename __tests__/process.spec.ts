@@ -1,38 +1,21 @@
-import * as fs from 'fs';
-import * as path from 'path';
-
-import type { DataFormat, RecordStructure } from '../src/types';
-import { parseData } from '../src/utils/parser';
+import { parseData, readFiles } from '../src/utils';
 
 describe('process', () => {
-  const parseFiles = async (format: DataFormat): Promise<RecordStructure[]> => {
-    const dataDir = path.join(__dirname, '../data');
+  test('should read and parse all CSV files in the data folder', async () => {
+    const content = await readFiles('csv');
+    expect(content).not.toEqual([]);
 
-    const files = fs.readdirSync(dataDir);
-    const filesToProcess = files.filter(
-      (file) => path.extname(file) === `.${format}`,
-    );
-
-    let parsedJSON: RecordStructure[] = [];
-
-    for (const file of filesToProcess) {
-      const content = await fs.promises.readFile(
-        path.join(dataDir, file),
-        'utf-8',
-      );
-      const fileJSON = await parseData(content, format);
-      parsedJSON = [...parsedJSON, ...fileJSON];
-    }
-    return parsedJSON;
-  };
-
-  test('should parse all CSV files in the data folder', async () => {
-    const results = await parseFiles('csv');
-    console.log('CSV', results);
+    const parsed = await parseData(content, 'csv');
+    expect(parsed).not.toEqual([]);
+    expect(parsed.length).toBeGreaterThan(0);
   });
 
-  test('should parse all XML files in the data folder', async () => {
-    const results = await parseFiles('xml');
-    console.log('XML', results);
+  test('should read and parse all XML files in the data folder', async () => {
+    const content = await readFiles('xml');
+    expect(content).not.toEqual([]);
+
+    const parsed = await parseData(content, 'xml');
+    expect(parsed).not.toEqual([]);
+    expect(parsed.length).toBeGreaterThan(0);
   });
 });

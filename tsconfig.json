@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
+    "allowJs": false,
     "baseUrl": ".",
-    "types": ["node", "jest"],
-    "skipLibCheck": true,
     "module": "commonjs",
-    "outDir": "dist/esm",
-    "allowJs": true,
     "moduleResolution": "node",
-    "removeComments": true
+    "outDir": "dist",
+    "removeComments": true,
+    "skipLibCheck": true,
+    "target": "es2018",
+    "types": ["node", "jest"]
   },
   "include": ["./src", "./__tests__"],
   "exclude": ["node_modules"]
