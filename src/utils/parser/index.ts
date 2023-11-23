@@ -1,2 +1,2 @@
 export { parseData } from './parse';
-export { isValidRecord } from './validity';
+export { isValidRecordStructure, validateRecords } from './validity';

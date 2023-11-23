@@ -15,3 +15,5 @@ export type RecordStructure = {
   mutation: Mutation;
   endBalance: EndBalance;
 };
+
+export type ValidationProperties = { valid: boolean; errors: string[] };

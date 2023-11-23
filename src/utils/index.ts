@@ -1,2 +1,3 @@
 export { readFiles } from './file';
-export { isValidRecord, parseData } from './parser';
+export { isValidRecordStructure, parseData, validateRecords } from './parser';
+export { generateReport } from './report';

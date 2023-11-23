@@ -1,7 +1,7 @@
 import * as csv from 'csv-parser';
 import type { RecordStructure } from 'src/types';
 import { Readable } from 'stream';
-import { isValidRecord } from './validity';
+import { isValidRecordStructure } from './validity';
 
 const headers = {
   reference: 'Reference',
@@ -12,7 +12,16 @@ const headers = {
   endBalance: 'End Balance',
 };
 
-export const parseCSV = async (data: string[]): Promise<RecordStructure[]> => {
+/**
+ * Parses CSV data into an array of records.
+ * @param {string[]} data - The CSV data to parse.
+ * @param {boolean} validOnly - If true, only valid records will be included in the output.
+ * @returns {Promise<RecordStructure[]>} - A promise that resolves with an array of records.
+ */
+export const parseCSV = async (
+  data: string[],
+  validOnly: boolean,
+): Promise<RecordStructure[]> => {
   const records: any[] = [];
 
   return new Promise((resolve, reject) =>
@@ -40,7 +49,7 @@ export const parseCSV = async (data: string[]): Promise<RecordStructure[]> => {
               endBalance: Number(endBalance),
             };
           })
-          .filter(isValidRecord);
+          .filter(validOnly ? isValidRecordStructure : () => true);
 
         resolve(parsedRecords);
       })
