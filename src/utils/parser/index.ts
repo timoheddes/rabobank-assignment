@@ -1,2 +1,7 @@
 export { parseData } from './parse';
-export { isValidRecordStructure, validateRecords } from './validity';
+export {
+  isUniqueReference,
+  isValidEndBalance,
+  isValidRecordStructure,
+  validateRecords,
+} from './validity';

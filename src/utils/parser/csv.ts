@@ -15,13 +15,9 @@ const headers = {
 /**
  * Parses CSV data into an array of records.
  * @param {string[]} data - The CSV data to parse.
- * @param {boolean} validOnly - If true, only valid records will be included in the output.
  * @returns {Promise<RecordStructure[]>} - A promise that resolves with an array of records.
  */
-export const parseCSV = async (
-  data: string[],
-  validOnly: boolean,
-): Promise<RecordStructure[]> => {
+export const parseCSV = async (data: string[]): Promise<RecordStructure[]> => {
   const records: Array<Record<string, string>> = [];
 
   return new Promise((resolve, reject) =>
@@ -49,12 +45,13 @@ export const parseCSV = async (
               endBalance: Number(endBalance),
             };
           })
-          .filter(validOnly ? isValidRecordStructure : () => true);
+          .filter(isValidRecordStructure);
+
+        if (parsedRecords.length === 0) {
+          return reject(new Error('Error reading CSV'));
+        }
 
         resolve(parsedRecords);
-      })
-      .on('error', (error) =>
-        reject(new Error(`Error reading CSV: ${error.message}`)),
-      ),
+      }),
   );
 };

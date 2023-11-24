@@ -1,6 +1,7 @@
+// eslint-disable-next-line no-undef
 module.exports = {
   coverageDirectory: '__tests__/coverage',
-  coverageReporters: ['lcov', 'html'],
+  coverageReporters: ['lcov', 'text', 'html'],
   collectCoverageFrom: ['src/*.{ts,tsx}', 'src/**/*.{ts,tsx}'],
   transform: {
     '^.+\\.ts?$': 'ts-jest',
