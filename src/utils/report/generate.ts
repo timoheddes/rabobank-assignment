@@ -1,2 +1,12 @@
-// import type { RecordStructure } from '../../types';
-// export async function generateReport(input: RecordStructure[], output: any) {}
+import type { ValidatedRecord } from '../../types';
+
+export const generateReport = (input: ValidatedRecord[]): string => {
+  const report = input
+    .filter((record) => !record.valid)
+    .map(({ reference, description, errors }) => ({
+      reference,
+      description,
+      errors,
+    }));
+  return JSON.stringify(report);
+};

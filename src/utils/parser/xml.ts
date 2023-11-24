@@ -1,5 +1,6 @@
-import type { RecordStructure } from 'src/types';
 import * as xml2js from 'xml2js';
+import { Constants } from '../../constants';
+import type { RecordStructure } from '../../types';
 import { isValidRecordStructure } from './validity';
 
 /**
@@ -13,15 +14,10 @@ export const parseXML = async (data: string[]): Promise<RecordStructure[]> =>
       data,
       { explicitArray: false, mergeAttrs: true },
       (error: Error, result) => {
-        if (error) {
-          return reject(new Error('Error reading XML'));
+        if (error || !Array.isArray(result.records.record)) {
+          return reject(new Error(Constants.Errors.file('XML')));
         }
 
-        if (!Array.isArray(result.records.record)) {
-          return reject(
-            new Error('Invalid XML format: records.record is not an array'),
-          );
-        }
         const parsedRecords: RecordStructure[] = result.records.record
           .map(
             ({

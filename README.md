@@ -10,7 +10,7 @@
 # install dependencies
 npm i
 
-# to test
+# run tests
 npm run test
 ```
 
@@ -60,13 +60,13 @@ requirements I received initially, I was also told:
 4. Based on the additional requirement, I will use a `JSON` format for the
    report as a default.
 
-<sup>**1:** _I imagine a statement processor would more likely exist in an
-automated environment as part of a pipeline rather than implemented in a UI.
-However, a manual file upload could potentially be a future use-case for a
-UI._</sup>
+<sup>**1:** _I imagine, and am working under the assumption, that a statement
+processor would more likely exist in an automated environment, e.g. as part of a
+pipeline, rather than be implemented in a UI. Of course, it would still be easy
+to support a manual file upload too._</sup>
 
 ### Focus points
 
 1. **Code quality**
-2. **Testing and high coverage**
+2. **Testing and coverage**
 3. **Type safety (TS) and documentation (JSDoc)**

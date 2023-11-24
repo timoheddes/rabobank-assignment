@@ -16,4 +16,12 @@ export type RecordStructure = {
   endBalance: EndBalance;
 };
 
+export type ValidatedRecord = RecordStructure & ValidationProperties;
+
+export type ReportRecord = {
+  reference: Reference;
+  description: Description;
+  errors: string[];
+};
+
 export type ValidationProperties = { valid: boolean; errors: string[] };

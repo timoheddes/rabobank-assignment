@@ -1,3 +1,4 @@
+import { Constants } from '../../constants';
 import type { RecordStructure, ValidationProperties } from '../../types';
 
 /**
@@ -58,10 +59,10 @@ export const validateRecords = (
 
   validatedRecords.forEach((record) => {
     if (!isUniqueReference(references, record.reference)) {
-      record.errors.push('Reference is not unique');
+      record.errors.push(Constants.Records.Errors.duplicate);
     }
     if (!isValidEndBalance(record)) {
-      record.errors.push('End balance is not valid');
+      record.errors.push(Constants.Records.Errors.incorrectEndBalance);
     }
     record.valid = record.errors.length === 0;
     references.add(record.reference);

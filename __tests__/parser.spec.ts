@@ -1,3 +1,4 @@
+import { Constants } from '../src/constants';
 import type { DataFormat } from '../src/types';
 import {
   isValidRecordStructure,
@@ -37,7 +38,7 @@ describe('parser', () => {
   test('should throw an error when reading a non-existent directory', async () => {
     await expect(
       readFolder('csv', './__tests__/non-existent-folder'),
-    ).rejects.toThrow('Error reading directory');
+    ).rejects.toThrow(Constants.Errors.folder);
   });
 
   test('should throw an error when reading a non-existent file', async () => {
@@ -49,21 +50,21 @@ describe('parser', () => {
   test('should throw an error when parsing invalid XML', async () => {
     const invalidXML = ['records><record</record></records>'];
     await expect(parseData(invalidXML, 'xml')).rejects.toThrow(
-      'Error reading XML',
+      Constants.Errors.file('XML'),
     );
   });
 
   test('should throw an error when parsing an empty XML file', async () => {
     const invalidXML = ['<records><record></record></records>'];
     await expect(parseData(invalidXML, 'xml')).rejects.toThrow(
-      'Invalid XML format: records.record is not an array',
+      Constants.Errors.file('XML'),
     );
   });
 
   test('should throw an error when parsing invalid CSV', async () => {
     const invalidCSV = ['Reference,Account Number,Description'];
     await expect(parseData(invalidCSV, 'csv')).rejects.toThrow(
-      'Error reading CSV',
+      Constants.Errors.file('CSV'),
     );
   });
 });

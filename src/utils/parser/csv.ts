@@ -1,6 +1,7 @@
 import * as csv from 'csv-parser';
-import type { RecordStructure } from 'src/types';
 import { Readable } from 'stream';
+import { Constants } from '../../constants';
+import type { RecordStructure } from '../../types';
 import { isValidRecordStructure } from './validity';
 
 const headers = {
@@ -48,7 +49,7 @@ export const parseCSV = async (data: string[]): Promise<RecordStructure[]> => {
           .filter(isValidRecordStructure);
 
         if (parsedRecords.length === 0) {
-          return reject(new Error('Error reading CSV'));
+          return reject(new Error(Constants.Errors.file('CSV')));
         }
 
         resolve(parsedRecords);

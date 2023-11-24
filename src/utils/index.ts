@@ -6,4 +6,4 @@ export {
   parseData,
   validateRecords,
 } from './parser';
-// export { generateReport } from './report';
+export { generateReport } from './report';

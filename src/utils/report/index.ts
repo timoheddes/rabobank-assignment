@@ -1,1 +1,1 @@
-// export { generateReport } from './generate';
+export { generateReport } from './generate';

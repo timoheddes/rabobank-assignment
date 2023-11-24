@@ -1,6 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import type { DataFormat } from 'src/types';
+import { Constants } from '../../constants';
+import type { DataFormat } from '../../types';
 
 /**
  * Reads the content of a file.
@@ -10,7 +11,7 @@ import type { DataFormat } from 'src/types';
  */
 export const readFile = async (file: string): Promise<string> =>
   fs.promises.readFile(file, 'utf-8').catch(() => {
-    throw new Error('Error reading file');
+    throw new Error(Constants.Errors.file());
   });
 
 /**
@@ -27,7 +28,7 @@ export const readFolder = async (
   const dataDir = path.join(path.resolve(), dir);
 
   const files = await fs.promises.readdir(dataDir).catch(() => {
-    throw new Error('Error reading directory');
+    throw new Error(Constants.Errors.folder);
   });
   const filesToProcess = files.filter(
     (file) => path.extname(file) === `.${format}`,

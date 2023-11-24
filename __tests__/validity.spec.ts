@@ -1,3 +1,4 @@
+import { Constants } from '../src/constants';
 import {
   isUniqueReference,
   isValidEndBalance,
@@ -50,16 +51,16 @@ describe('isValidEndBalance', () => {
     expect(isValidEndBalance(record)).toBe(true);
   });
 
-  it('and also to those in massive debt..', () => {
+  it('and also to those with large debt..', () => {
     record.startBalance = -230052;
-    record.mutation = 5000;
+    record.mutation = +5000;
     record.endBalance = -225052;
     expect(isValidEndBalance(record)).toBe(true);
   });
 });
 
 describe('validateRecords', () => {
-  it('should flag duplicate references', async () => {
+  it('should flag records with duplicate references', async () => {
     const records = [
       {
         reference: 112806,
@@ -88,13 +89,13 @@ describe('validateRecords', () => {
       },
       {
         ...records[1],
-        ...{ valid: false, errors: ['Reference is not unique'] },
+        ...{ valid: false, errors: [Constants.Records.Errors.duplicate] },
       },
     ]);
   });
 
-  it('should flag invalid end balances', async () => {
-    const records = [
+  it('should flag records with invalid end balances', async () => {
+    const invalidRecords = [
       {
         reference: 146294,
         accountNumber: 'NL90ABNA0585647886',
@@ -105,10 +106,13 @@ describe('validateRecords', () => {
       },
     ];
 
-    expect(validateRecords(records)).toEqual([
+    expect(validateRecords(invalidRecords)).toEqual([
       {
-        ...records[0],
-        ...{ valid: false, errors: ['End balance is not valid'] },
+        ...invalidRecords[0],
+        ...{
+          valid: false,
+          errors: [Constants.Records.Errors.incorrectEndBalance],
+        },
       },
     ]);
   });
