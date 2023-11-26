@@ -4,9 +4,9 @@ import { parseXML } from './xml';
 
 /**
  * Parses data in either CSV or XML format into an array of records.
- * @param {string[]} data - The data to parse.
- * @param {DataFormat} format - The format of the data ('csv' or 'xml').
- * @returns {Promise<RecordStructure[]>} - A promise that resolves with an array of records.
+ * @param data - The data to parse.
+ * @param format - The format of the data ('csv' or 'xml').
+ * @returns A promise that resolves with an array of records.
  */
 export async function parseData(
   data: string[],

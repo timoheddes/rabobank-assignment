@@ -7,7 +7,7 @@ import type {
 
 /**
  * Checks if the structure of a record is valid.
- * @param {RecordStructure} record - Record to validate.
+ * @param record - Record to validate.
  * @returns {boolean}
  */
 export const isValidRecordStructure = ({
@@ -26,8 +26,8 @@ export const isValidRecordStructure = ({
 
 /**
  * Checks if a reference is unique.
- * @param {Set<number>} references - Set of existing references to check against.
- * @param {number} reference - Reference to check.
+ * @param references - Set of existing references to check against.
+ * @param reference - Reference to check.
  * @returns {boolean}
  */
 export const isUniqueReference = (
@@ -37,7 +37,7 @@ export const isUniqueReference = (
 
 /**
  * Checks if the end balance of a record is valid.
- * @param {RecordStructure} record - Record to validate.
+ * @param record - Record to validate.
  * @returns {boolean}
  */
 export const isValidEndBalance = (record: RecordStructure): boolean =>
@@ -46,8 +46,8 @@ export const isValidEndBalance = (record: RecordStructure): boolean =>
 
 /**
  * Validates an array of records.
- * @param {RecordStructure[]} records - Records to validate.
- * @returns {(RecordStructure & ValidationProperties)[]} - Returns a new array of records with added validation properties.
+ * @param records - Records to validate.
+ * @returns A new array of records with added validation properties.
  */
 export const validateRecords = (
   records: RecordStructure[],

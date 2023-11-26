@@ -6,6 +6,8 @@ module.exports = {
     'src/*.{ts,tsx}',
     'src/**/*.{ts,tsx}',
     '!src/types/index.ts',
+    '!src/cli/*',
+    '!src/index.ts',
   ],
   transform: {
     '^.+\\.ts?$': 'ts-jest',

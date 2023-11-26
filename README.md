@@ -29,6 +29,12 @@ Simply run the CLI in a folder containing the input files (XML or CSV). The CLI
 will scan the folder and generate a JSON report of the failed transactions in
 the same folder. For more options, see the help menu (`rabo -h`).
 
+You can also run the CLI with `npx`:
+
+```sh
+npx rabo
+```
+
 ---
 
 ## The challenge
@@ -87,7 +93,3 @@ to support a manual file upload too._</sup>
 1. **Code quality**
 2. **Testing and coverage**
 3. **Type safety (TS) and documentation (JSDoc)**
-
-```
-
-```

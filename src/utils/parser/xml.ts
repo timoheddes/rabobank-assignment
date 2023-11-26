@@ -5,8 +5,8 @@ import { isValidRecordStructure } from './validity';
 
 /**
  * Parses XML data into an array of records.
- * @param {string[]} data - The XML data to parse.
- * @returns {Promise<RecordStructure[]>} - A promise that resolves with an array of records.
+ * @param data - The XML data to parse.
+ * @returns A promise that resolves with an array of records.
  */
 export const parseXML = async (data: string[]): Promise<RecordStructure[]> =>
   new Promise((resolve, reject) =>

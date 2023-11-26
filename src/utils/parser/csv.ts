@@ -4,7 +4,7 @@ import { Constants } from '../../constants';
 import type { RecordStructure } from '../../types';
 import { isValidRecordStructure } from './validity';
 
-const headers = {
+const CSVHeaders = {
   reference: 'Reference',
   accountNumber: 'Account Number',
   description: 'Description',
@@ -15,8 +15,8 @@ const headers = {
 
 /**
  * Parses CSV data into an array of records.
- * @param {string[]} data - The CSV data to parse.
- * @returns {Promise<RecordStructure[]>} - A promise that resolves with an array of records.
+ * @param data - The CSV data to parse.
+ * @returns A promise that resolves with an array of records.
  */
 export const parseCSV = async (data: string[]): Promise<RecordStructure[]> => {
   const records: Array<Record<string, string>> = [];
@@ -29,12 +29,12 @@ export const parseCSV = async (data: string[]): Promise<RecordStructure[]> => {
         const parsedRecords: RecordStructure[] = records
           .map((record) => {
             const {
-              [headers.reference]: reference,
-              [headers.accountNumber]: accountNumber,
-              [headers.description]: description,
-              [headers.startBalance]: startBalance,
-              [headers.mutation]: mutation,
-              [headers.endBalance]: endBalance,
+              [CSVHeaders.reference]: reference,
+              [CSVHeaders.accountNumber]: accountNumber,
+              [CSVHeaders.description]: description,
+              [CSVHeaders.startBalance]: startBalance,
+              [CSVHeaders.mutation]: mutation,
+              [CSVHeaders.endBalance]: endBalance,
             } = record;
 
             return {
