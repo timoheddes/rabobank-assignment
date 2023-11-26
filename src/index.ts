@@ -34,7 +34,7 @@ if (options.ls) {
 }
 
 // Create report
-if (options.report) {
+if (options.report || !process.argv.slice(2).length) {
   const filename =
     typeof options.report === 'string'
       ? `${options.report}`
