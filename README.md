@@ -6,13 +6,30 @@
 
 ---
 
+### How to use
+
 ```sh
 # install dependencies
 npm i
 
 # run tests
 npm run test
+
+# build
+npm run build
+
+# install the CLI globally
+npm install -g .
+
+# run the CLI
+rabo -h
 ```
+
+Simply run the CLI in a folder containing the input files (XML or CSV). The CLI
+will scan the folder and generate a JSON report of the failed transactions in
+the same folder. For more options, see the help menu (`rabo -h`).
+
+---
 
 ## The challenge
 
@@ -70,3 +87,7 @@ to support a manual file upload too._</sup>
 1. **Code quality**
 2. **Testing and coverage**
 3. **Type safety (TS) and documentation (JSDoc)**
+
+```
+
+```

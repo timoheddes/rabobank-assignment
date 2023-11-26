@@ -13,19 +13,16 @@ describe('parser', () => {
   ['csv', 'xml'].forEach((type) => {
     test(`should read and parse all ${type.toUpperCase()} files in the test data folder`, async () => {
       // Read all files in the test data folder and verify they are not empty.
-      const fileContent = await readFolder(
-        type as DataFormat,
-        testDataDirectory,
-      );
-      if (fileContent.length === 0) {
+      const files = await readFolder(type as DataFormat, testDataDirectory);
+      if (files.length === 0) {
         throw new Error(
           `❗ no ${type.toUpperCase()} files found in data folder..`,
         );
       }
-      expect(fileContent).not.toEqual([]);
+      expect(files).not.toEqual([]);
 
       // Parse the data from the file contents and verify the records are valid.
-      const parsedRecords = await parseData(fileContent, type as DataFormat);
+      const parsedRecords = await parseData(files, type as DataFormat);
       expect(parsedRecords.length).toBeGreaterThan(0);
       expect(parsedRecords).not.toEqual([]);
 
@@ -38,7 +35,7 @@ describe('parser', () => {
   test('should throw an error when reading a non-existent directory', async () => {
     await expect(
       readFolder('csv', './__tests__/non-existent-folder'),
-    ).rejects.toThrow(Constants.Errors.folder);
+    ).rejects.toThrow(Constants.IO.Errors.folder);
   });
 
   test('should throw an error when reading a non-existent file', async () => {
@@ -50,21 +47,21 @@ describe('parser', () => {
   test('should throw an error when parsing invalid XML', async () => {
     const invalidXML = ['records><record</record></records>'];
     await expect(parseData(invalidXML, 'xml')).rejects.toThrow(
-      Constants.Errors.file('XML'),
+      Constants.IO.Errors.file('XML'),
     );
   });
 
   test('should throw an error when parsing an empty XML file', async () => {
     const invalidXML = ['<records><record></record></records>'];
     await expect(parseData(invalidXML, 'xml')).rejects.toThrow(
-      Constants.Errors.file('XML'),
+      Constants.IO.Errors.file('XML'),
     );
   });
 
   test('should throw an error when parsing invalid CSV', async () => {
     const invalidCSV = ['Reference,Account Number,Description'];
     await expect(parseData(invalidCSV, 'csv')).rejects.toThrow(
-      Constants.Errors.file('CSV'),
+      Constants.IO.Errors.file('CSV'),
     );
   });
 });

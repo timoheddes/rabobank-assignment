@@ -1,4 +1,4 @@
-export { readFile, readFolder } from './file';
+export { getFolderPath, readFile, readFolder } from './file';
 export {
   isUniqueReference,
   isValidEndBalance,
@@ -6,4 +6,4 @@ export {
   parseData,
   validateRecords,
 } from './parser';
-export { generateReport } from './report';
+export { generateTimestamp, saveReport } from './report';

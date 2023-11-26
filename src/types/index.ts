@@ -7,21 +7,23 @@ export type StartBalance = number;
 export type Mutation = number;
 export type EndBalance = number;
 
-export type RecordStructure = {
+export interface RecordStructure {
   reference: Reference;
   accountNumber: AccountNumber;
   description: Description;
   startBalance: StartBalance;
   mutation: Mutation;
   endBalance: EndBalance;
-};
+}
+export interface ValidationProperties {
+  valid: boolean;
+  errors: string[];
+}
 
 export type ValidatedRecord = RecordStructure & ValidationProperties;
 
-export type ReportRecord = {
+export interface ReportRecord {
   reference: Reference;
   description: Description;
   errors: string[];
-};
-
-export type ValidationProperties = { valid: boolean; errors: string[] };
+}

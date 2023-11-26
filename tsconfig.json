@@ -1,15 +1,24 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
     "allowJs": false,
     "baseUrl": ".",
-    "module": "commonjs",
-    "moduleResolution": "node",
+    "declaration": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "lib": ["esnext"],
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "noEmit": false,
     "outDir": "dist",
     "removeComments": true,
+    "skipDefaultLibCheck": true,
     "skipLibCheck": true,
-    "target": "es2018",
+    "strict": true,
+    "target": "esnext",
     "types": ["node", "jest"]
   },
-  "include": ["./src", "./__tests__"],
+  "include": ["./src/**/*.ts"],
   "exclude": ["node_modules"]
 }

@@ -11,7 +11,7 @@ import type { DataFormat } from '../../types';
  */
 export const readFile = async (file: string): Promise<string> =>
   fs.promises.readFile(file, 'utf-8').catch(() => {
-    throw new Error(Constants.Errors.file());
+    throw new Error(Constants.IO.Errors.file());
   });
 
 /**
@@ -21,21 +21,25 @@ export const readFile = async (file: string): Promise<string> =>
  * @returns {Promise<string[]>} - Promise that resolves with an array of the contents of the files.
  * @throws {Error} - Throws an error if there's an issue reading a file or directory.
  */
+
+export const getFolderPath = (dir: string) => {
+  const isAbsolute = path.isAbsolute(dir);
+  return isAbsolute ? dir : path.resolve(dir);
+};
+
 export const readFolder = async (
   format: DataFormat,
-  dir: string,
+  folder: string,
 ): Promise<string[]> => {
-  const dataDir = path.join(path.resolve(), dir);
-
-  const files = await fs.promises.readdir(dataDir).catch(() => {
-    throw new Error(Constants.Errors.folder);
+  const files = await fs.promises.readdir(folder).catch(() => {
+    throw new Error(Constants.IO.Errors.folder);
   });
   const filesToProcess = files.filter(
     (file) => path.extname(file) === `.${format}`,
   );
 
   const fileContents = await Promise.all(
-    filesToProcess.map((file) => readFile(path.resolve(dataDir, file))),
+    filesToProcess.map((file) => readFile(path.resolve(folder, file))),
   );
 
   return fileContents.filter(Boolean);

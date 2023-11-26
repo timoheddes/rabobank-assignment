@@ -1,28 +1,37 @@
 {
-  "name": "rabobank-assignment",
+  "name": "@theddes/rabobank-assignment",
   "version": "0.0.1",
+  "private": true,
   "description": "Rabobank Customer Statement Processor",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "bin": {
+    "rabo": "./dist/index.js"
+  },
   "scripts": {
+    "build": "npx tsc",
     "test": "jest --coverage --verbose"
   },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/timoheddes/rabobank-assignment.git"
   },
-  "author": "timoheddes",
+  "author": "timoheddes <timoheddes@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/timoheddes/rabobank-assignment/issues"
   },
   "homepage": "https://github.com/timoheddes/rabobank-assignment#readme",
   "dependencies": {
+    "chalk": "4.1.2",
+    "commander": "11.1.0",
     "csv-parser": "^3.0.0",
+    "figlet": "1.7.0",
     "xml2js": "^0.6.2"
   },
   "devDependencies": {
+    "@types/figlet": "1.5.8",
     "@types/jest": "^29.5.10",
-    "@types/node": "^20.9.5",
+    "@types/node": "^20.10.0",
     "@types/xml2js": "^0.4.14",
     "@typescript-eslint/eslint-plugin": "^6.12.0",
     "@typescript-eslint/parser": "^6.12.0",

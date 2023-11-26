@@ -2,7 +2,11 @@
 module.exports = {
   coverageDirectory: '__tests__/coverage',
   coverageReporters: ['lcov', 'text', 'html'],
-  collectCoverageFrom: ['src/*.{ts,tsx}', 'src/**/*.{ts,tsx}'],
+  collectCoverageFrom: [
+    'src/*.{ts,tsx}',
+    'src/**/*.{ts,tsx}',
+    '!src/types/index.ts',
+  ],
   transform: {
     '^.+\\.ts?$': 'ts-jest',
   },

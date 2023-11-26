@@ -1,20 +1,15 @@
 import { Constants } from '../src/constants';
 import type { ReportRecord } from '../src/types';
-import {
-  generateReport,
-  parseData,
-  readFile,
-  validateRecords,
-} from '../src/utils';
+import { parseData, readFile, saveReport, validateRecords } from '../src/utils';
 
 describe('report', () => {
   let report: string;
 
-  it('should generate JSON report', async () => {
+  it('should create and save JSON report', async () => {
     const records = await readFile('./__tests__/data/records.csv');
     const parsedRecords = await parseData([records], 'csv');
     const validatedRecords = validateRecords(parsedRecords);
-    report = generateReport(validatedRecords);
+    report = saveReport(validatedRecords, 'test-report', './reports');
 
     expect(report).toEqual(
       JSON.stringify([

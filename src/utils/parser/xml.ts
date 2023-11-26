@@ -13,9 +13,9 @@ export const parseXML = async (data: string[]): Promise<RecordStructure[]> =>
     xml2js.parseString(
       data,
       { explicitArray: false, mergeAttrs: true },
-      (error: Error, result) => {
-        if (error || !Array.isArray(result.records.record)) {
-          return reject(new Error(Constants.Errors.file('XML')));
+      (err: Error | null, result) => {
+        if (err || !Array.isArray(result.records.record)) {
+          return reject(new Error(Constants.IO.Errors.file('XML')));
         }
 
         const parsedRecords: RecordStructure[] = result.records.record
@@ -27,7 +27,7 @@ export const parseXML = async (data: string[]): Promise<RecordStructure[]> =>
               startBalance,
               mutation,
               endBalance,
-            }) => ({
+            }: RecordStructure) => ({
               reference: Number(reference),
               accountNumber,
               description,

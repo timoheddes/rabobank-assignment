@@ -1,5 +1,9 @@
 import { Constants } from '../../constants';
-import type { RecordStructure, ValidationProperties } from '../../types';
+import type {
+  RecordStructure,
+  ValidatedRecord,
+  ValidationProperties,
+} from '../../types';
 
 /**
  * Checks if the structure of a record is valid.
@@ -48,7 +52,7 @@ export const isValidEndBalance = (record: RecordStructure): boolean =>
 export const validateRecords = (
   records: RecordStructure[],
 ): (RecordStructure & ValidationProperties)[] => {
-  const references = new Set([]);
+  const references: Set<number> = new Set([]);
   const validatedRecords = records.map((record) => ({
     ...record,
     ...{
@@ -57,7 +61,7 @@ export const validateRecords = (
     },
   }));
 
-  validatedRecords.forEach((record) => {
+  validatedRecords.forEach((record: ValidatedRecord) => {
     if (!isUniqueReference(references, record.reference)) {
       record.errors.push(Constants.Records.Errors.duplicate);
     }
