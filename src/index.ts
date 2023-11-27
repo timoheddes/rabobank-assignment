@@ -23,7 +23,7 @@ program
 const options = program.opts();
 
 // Show help
-if (options.help) {
+if (options.help || !process.argv.slice(2).length) {
   program.outputHelp();
 }
 
@@ -34,7 +34,7 @@ if (options.ls) {
 }
 
 // Create report
-if (options.report || !process.argv.slice(2).length) {
+if (options.report) {
   const filename =
     typeof options.report === 'string'
       ? `${options.report}`

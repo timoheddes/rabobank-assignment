@@ -1,6 +1,6 @@
 {
   "name": "@theddes/rabobank-assignment",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Rabobank Customer Statement Processor",
   "main": "dist/index.js",
   "bin": {
