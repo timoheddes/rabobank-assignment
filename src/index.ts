@@ -6,7 +6,7 @@ import { generateTimestamp } from './utils';
 
 const program = new Command();
 program
-  .version('0.1.1')
+  .version('0.1.2')
   .description('Rabobank Customer Statement Processor')
   .option(
     '-l, --ls [folder]',
@@ -22,7 +22,7 @@ program
 const options = program.opts();
 
 // Show help
-if (options.help) {
+if (options.help || !process.argv.slice(2).length) {
   program.outputHelp();
 }
 
