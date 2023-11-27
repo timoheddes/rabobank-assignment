@@ -6,7 +6,7 @@ import { generateTimestamp } from './utils';
 
 const program = new Command();
 program
-  .version('0.1.2')
+  .version('0.1.5')
   .description('Rabobank Customer Statement Processor')
   .option(
     '-l, --ls [folder]',
@@ -33,7 +33,7 @@ if (options.ls) {
 }
 
 // Create report
-if (options.report || !process.argv.slice(2).length) {
+if (options.report) {
   const filename =
     typeof options.report === 'string'
       ? `${options.report}`

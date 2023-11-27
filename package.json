@@ -1,6 +1,6 @@
 {
   "name": "rabo",
-  "version": "0.1.2",
+  "version": "0.1.5",
   "description": "Rabobank Customer Statement Processor",
   "main": "dist/index.js",
   "bin": {

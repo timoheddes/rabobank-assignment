@@ -1,6 +1,7 @@
 import { Constants } from '../src/constants';
 import type { ReportRecord } from '../src/types';
 import {
+  generateTimestamp,
   parseData,
   readFile,
   saveReport,
@@ -44,5 +45,13 @@ describe('report', () => {
         (record: ReportRecord) => record?.errors?.length !== 0,
       ),
     ).toBeTruthy();
+  });
+});
+
+describe('generateTimestamp', () => {
+  it('should return a timestamp in the correct format', () => {
+    const result = generateTimestamp();
+    const regex = /^\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}-\d{3}Z$/;
+    expect(result).toMatch(regex);
   });
 });

@@ -1,6 +1,8 @@
+import * as path from 'path';
 import { Constants } from '../src/constants';
 import type { DataFormat } from '../src/types';
 import {
+  getFolderPath,
   isValidRecordStructure,
   parseData,
   readFile,
@@ -63,5 +65,19 @@ describe('parser', () => {
     await expect(parseData(invalidCSV, 'csv')).rejects.toThrow(
       Constants.IO.Errors.file('CSV'),
     );
+  });
+});
+
+describe('getFolderPath', () => {
+  it('should return the same path if it is absolute', () => {
+    const absolutePath = '/absolute/path';
+    const result = getFolderPath(absolutePath);
+    expect(result).toEqual(absolutePath);
+  });
+
+  it('should return an absolute path if the given path is relative', () => {
+    const relativePath = 'relative/path';
+    const result = getFolderPath(relativePath);
+    expect(result).toEqual(path.resolve(relativePath));
   });
 });
