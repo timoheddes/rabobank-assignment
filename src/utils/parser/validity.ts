@@ -1,9 +1,9 @@
-import { Constants } from '@constants';
+import { Constants } from '../../constants';
 import type {
   RecordStructure,
   ValidatedRecord,
   ValidationProperties,
-} from '@types';
+} from '../../types';
 
 /**
  * Checks if the structure of a record is valid.

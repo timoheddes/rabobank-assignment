@@ -1,12 +1,12 @@
 #! /usr/bin/env node
 
-import { createReport, scanFolder } from '@cli';
-import { generateTimestamp } from '@utils';
 import { Command } from 'commander';
+import { createReport, scanFolder } from './cli';
+import { generateTimestamp } from './utils';
 
 const program = new Command();
 program
-  .version('0.1.0')
+  .version('0.1.1')
   .description('Rabobank Customer Statement Processor')
   .option(
     '-l, --ls [folder]',

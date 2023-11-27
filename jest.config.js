@@ -1,6 +1,4 @@
 /* eslint-disable */
-const { pathsToModuleNameMapper } = require('ts-jest');
-const { compilerOptions } = require('./tsconfig.json');
 module.exports = {
   coverageDirectory: '__tests__/coverage',
   preset: 'ts-jest',
@@ -13,8 +11,6 @@ module.exports = {
     '!src/cli/*',
     '!src/index.ts',
   ],
-  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths),
-  modulePaths: ['<rootDir>'],
   transform: {
     '^.+\\.ts?$': 'ts-jest',
   },

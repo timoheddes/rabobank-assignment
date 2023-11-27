@@ -17,13 +17,7 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "esnext",
-    "types": ["node", "jest"],
-    "paths": {
-      "@utils": ["src/utils"],
-      "@types": ["src/types"],
-      "@constants": ["src/constants"],
-      "@cli": ["src/cli"]
-    }
+    "types": ["node", "jest"]
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]

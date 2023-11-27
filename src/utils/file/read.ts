@@ -1,7 +1,7 @@
-import { Constants } from '@constants';
-import type { DataFormat } from '@types';
 import * as fs from 'fs';
 import * as path from 'path';
+import { Constants } from '../../constants';
+import type { DataFormat } from '../../types';
 
 /**
  * Reads the content of a file.
