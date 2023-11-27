@@ -1,1 +1,1 @@
-export { generateTimestamp, saveReport } from './save';
+export { generateTimestamp, saveReport, stripRecords } from './save';

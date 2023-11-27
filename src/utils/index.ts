@@ -6,4 +6,4 @@ export {
   parseData,
   validateRecords,
 } from './parser';
-export { generateTimestamp, saveReport } from './report';
+export { generateTimestamp, saveReport, stripRecords } from './report';

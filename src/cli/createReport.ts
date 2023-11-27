@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 import figlet from 'figlet';
 
-import { saveReport, validateRecords } from '../utils';
+import { saveReport, stripRecords, validateRecords } from '../utils';
 import { count } from './count';
 import { scanFolder } from './scanFolder';
 
@@ -15,11 +15,18 @@ export const createReport = async (file: string) => {
   const records = await scanFolder();
   if (records) {
     const validatedRecords = validateRecords(records);
-    const report = saveReport(validatedRecords, file);
+    const failedTransactions = stripRecords(validatedRecords);
+    if (failedTransactions.length === 0) {
+      return console.info(chalk.bold('No failed transactions found.'));
+    }
+    saveReport(failedTransactions, file);
     console.info(
-      `\nCreated report ${chalk.bold(
-        `${chalk.italic(file)}.json`,
-      )} containing ${count(JSON.parse(report).length, 'record')}.`,
+      `\n${count(
+        failedTransactions.length,
+        'record',
+      )} failed validation: ${chalk.blueBright(
+        chalk.bold(`${chalk.italic(file)}.json`),
+      )}`,
     );
   }
 };

@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import type { ValidatedRecord } from '../../types';
+import type { RecordStructure, ValidatedRecord } from '../../types';
 
 /**
  * Generates a timestamp with colons and periods replaced by hyphens.
@@ -36,12 +36,10 @@ export const stripRecords = (
  * @returns The JSON string of the report.
  */
 export const saveReport = (
-  records: ValidatedRecord[],
+  records: Partial<RecordStructure>[],
   filename?: string | undefined,
   dir?: string | undefined,
 ): string => {
-  const report = stripRecords(records);
-
   const reportDir = dir ? dir : './';
   fs.mkdirSync(reportDir, { recursive: true });
 
@@ -50,8 +48,8 @@ export const saveReport = (
       reportDir,
       `${filename ? filename : `report-${generateTimestamp()}`}.json`,
     ),
-    JSON.stringify(report, null, 2),
+    JSON.stringify(records, null, 2),
   );
 
-  return JSON.stringify(report);
+  return JSON.stringify(records);
 };
