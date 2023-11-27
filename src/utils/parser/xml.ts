@@ -1,7 +1,7 @@
+import { Constants } from '@constants';
+import type { RecordStructure } from '@types';
+import { isValidRecordStructure } from '@utils';
 import * as xml2js from 'xml2js';
-import { Constants } from '../../constants';
-import type { RecordStructure } from '../../types';
-import { isValidRecordStructure } from './validity';
 
 /**
  * Parses XML data into an array of records.

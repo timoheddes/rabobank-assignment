@@ -1,6 +1,12 @@
 import { Constants } from '../src/constants';
 import type { ReportRecord } from '../src/types';
-import { parseData, readFile, saveReport, validateRecords } from '../src/utils';
+import {
+  parseData,
+  readFile,
+  saveReport,
+  stripRecords,
+  validateRecords,
+} from '../src/utils/';
 
 describe('report', () => {
   let report: string;
@@ -9,7 +15,12 @@ describe('report', () => {
     const records = await readFile('./__tests__/data/records.csv');
     const parsedRecords = await parseData([records], 'csv');
     const validatedRecords = validateRecords(parsedRecords);
-    report = saveReport(validatedRecords, 'test-report', './reports');
+
+    report = saveReport(
+      stripRecords(validatedRecords),
+      'test-report',
+      './reports',
+    );
 
     expect(report).toEqual(
       JSON.stringify([

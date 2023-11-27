@@ -1,6 +1,6 @@
+import type { RecordStructure, ValidatedRecord } from '@types';
 import * as fs from 'fs';
 import * as path from 'path';
-import type { RecordStructure, ValidatedRecord } from '../../types';
 
 /**
  * Generates a timestamp with colons and periods replaced by hyphens.

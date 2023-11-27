@@ -2,8 +2,7 @@ import chalk from 'chalk';
 import figlet from 'figlet';
 
 import { saveReport, stripRecords, validateRecords } from '../utils';
-import { count } from './count';
-import { scanFolder } from './scanFolder';
+import { count, scanFolder } from './';
 
 /**
  * Creates a report from the records in a JSON file.

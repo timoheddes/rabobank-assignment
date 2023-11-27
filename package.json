@@ -1,13 +1,13 @@
 {
   "name": "@theddes/rabobank-assignment",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "description": "Rabobank Customer Statement Processor",
   "main": "dist/index.js",
   "bin": {
     "rabo": "./dist/index.js"
   },
   "scripts": {
-    "build": "npx tsc",
+    "build": "rimraf dist && npx tsc",
     "test": "jest --coverage --verbose"
   },
   "repository": {

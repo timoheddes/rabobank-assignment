@@ -3,7 +3,7 @@ import * as path from 'path';
 import { Constants } from '../constants';
 import type { DataFormat, RecordStructure } from '../types';
 import { getFolderPath, parseData, readFolder } from '../utils';
-import { count } from './count';
+import { count } from './';
 
 /**
  * Scans a directory for CSV and XML files and reports the number of files and records found.

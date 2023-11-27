@@ -1,4 +1,4 @@
-import type { DataFormat, RecordStructure } from '../../types';
+import type { DataFormat, RecordStructure } from '@types';
 import { parseCSV } from './csv';
 import { parseXML } from './xml';
 

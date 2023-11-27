@@ -1,13 +1,12 @@
 #! /usr/bin/env node
 
+import { createReport, scanFolder } from '@cli';
+import { generateTimestamp } from '@utils';
 import { Command } from 'commander';
-import { createReport } from './cli/createReport';
-import { scanFolder } from './cli/scanFolder';
-import { generateTimestamp } from './utils';
 
 const program = new Command();
 program
-  .version('0.0.1')
+  .version('0.1.0')
   .description('Rabobank Customer Statement Processor')
   .option(
     '-l, --ls [folder]',
@@ -23,7 +22,7 @@ program
 const options = program.opts();
 
 // Show help
-if (options.help || !process.argv.slice(2).length) {
+if (options.help) {
   program.outputHelp();
 }
 
@@ -34,7 +33,7 @@ if (options.ls) {
 }
 
 // Create report
-if (options.report) {
+if (options.report || !process.argv.slice(2).length) {
   const filename =
     typeof options.report === 'string'
       ? `${options.report}`

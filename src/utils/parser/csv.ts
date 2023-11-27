@@ -1,8 +1,8 @@
+import { Constants } from '@constants';
+import type { RecordStructure } from '@types';
 import csv from 'csv-parser';
 import { Readable } from 'stream';
-import { Constants } from '../../constants';
-import type { RecordStructure } from '../../types';
-import { isValidRecordStructure } from './validity';
+import { isValidRecordStructure } from './';
 
 const CSVHeaders = {
   reference: 'Reference',
